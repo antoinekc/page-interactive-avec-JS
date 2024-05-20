@@ -61,6 +61,41 @@ function hide () {
     link.disabled = false;
   }
 }
-
 navbar.addEventListener("dblclick", hide);
 body.addEventListener("dblclick", hide);
+
+
+
+// let cards = document.querySelectorAll(".card");
+// let cardText = document.querySelector("card-text");
+// let viewButtons = document.querySelectorAll('.card .btn-success');
+// let cardImage = cards.querySelector('.card-img-top');
+
+let viewButtons = document.querySelectorAll('.card');
+
+function reduce () {
+  let card = this.closest('.card');
+  let cardText = card.querySelector('.card-text');
+  let cardImage = card.querySelector('.card-img-top');
+
+  cardImage.style.transform = 'scale(0.2)';
+  cardImage.style.transition = 'transform 1s';
+  cardText.style.display = 'none';
+}
+
+function restore () {
+  let card = this.closest('.card');
+  let cardText = card.querySelector('.card-text');
+  let cardImage = card.querySelector('.card-img-top');
+
+  cardImage.style.transform = 'scale(1)';
+  cardImage.style.transition = 'transform 1s';
+  cardText.style.display = 'block';
+}
+
+viewButtons.forEach( button => {
+  button.addEventListener('mouseover', reduce);
+  button.addEventListener('mouseout', restore);
+});
+
+
