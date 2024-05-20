@@ -99,3 +99,26 @@ viewButtons.forEach( button => {
 });
 
 
+// Fonctionnalité 7
+
+function next () {
+  let rightButton = document.querySelector('.btn-secondary');
+  let cardsContainer = document.querySelector('.album .row');
+  let lastCard = cardsContainer.lastElementChild;
+    cardsContainer.insertBefore(lastCard, cardsContainer.firstElementChild);
+  }
+
+let rightButton = document.querySelector('.btn-secondary');
+rightButton.addEventListener('click', next);
+
+// Fonctionnalité 8
+
+let leftButton = document.querySelector('.btn-primary');
+
+function left (event) {
+  let cardsContainer = document.querySelector('.album .row');
+  let firstCard = cardsContainer.firstElementChild;
+  event.preventDefault();
+  cardsContainer.appendChild(firstCard);
+}
+leftButton.addEventListener('click', left);
